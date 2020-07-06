@@ -9,12 +9,14 @@
     "@aztec/dev-utils": "2.4.0",
     "@aztec/protocol": "1.7.0",
     "@aztec/secp256k1": "1.2.0",
+    "@truffle/hdwallet-provider": "^1.0.37",
     "aztec.js": "0.18.0",
     "global": "^4.4.0",
     "openzeppelin-solidity": "^2.2.0",
     "web3": "^1.0.0-beta.51"
   },
   "devDependencies": {
+    "truffle-plugin-verify": "^0.3.11",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
@@ -33,8 +35,11 @@
   "scripts": {
     "compile": "truffle compile --all",
     "migrate": "truffle compile --all && truffle migrate --reset",
+    "migrate-goerli": "truffle migrate --network goerli --skip-dry-run --describe-json --reset",
     "ganache": "babel-node scripts/run ganache",
     "demo": "truffle test test/demo.js",
-    "start": "npm run ganache"
+    "demo-goerli": "truffle test test/demo.js --network goerli",
+    "start": "npm run ganache",
+    "verify": "truffle --network goerli run verify"
   }
 }
